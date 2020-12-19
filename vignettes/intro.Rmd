@@ -1,0 +1,54 @@
+---
+title: "Introduction to StatComp20035"
+author: "Yu Jiayi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to StatComp}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+__StatComp20035__ is a simple R package developed to introduce the statistical computing course homework and including two simple functions to practice the R packages .Two functions are considered, one is about using Monte Carlo method to estimate the value of complex integral, the second function is about Gibbs sampler applied to normal distribution
+
+## Monte Carlo integral
+
+The source R code  is as follows:
+```{r,eval=FALSE}
+integral <-function(a,b)
+{
+N <- 10000
+z <- numeric(N)
+u <- runif(N,0,1)
+z <- (b-a)*u + a
+f <- function(x) 
+{
+  exp(-x)/(1+x^2)
+}
+integral <- mean(f(z)/(b-a))
+integral
+}
+}
+```
+
+## Gibbs sampler
+The source R code  is as follows:
+```{r,eval=FALSE}
+gibbs<-function (n, r) 
+{
+   mat <- matrix(ncol = 2, nrow = n)
+  x <- 0 
+  y <- 0
+   mat[1, ] <- c(x, y)
+   for (i in 2:n) {
+      x <- rnorm(1, r * y, sqrt(1 - r^2))
+      y <- rnorm(1, r * x, sqrt(1 - r^2))
+      mat[i, ] <- c(x, y)
+   }
+   mat
+}
+bvn <- gibbs(n,r)
+plot(bvn,type="l")
+```

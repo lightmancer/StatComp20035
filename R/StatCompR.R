@@ -1,0 +1,51 @@
+#' @title A function try to calculate the given integral
+#' @description  used uniform distribution to calculate the integral using Monte Carlo method
+#' @param a the lower bound
+#' @param b the upper bound1
+#' @return the number of integral
+#' @examples
+#' \dontrun{
+#' f <- function(x)
+#' {
+#' exp(-x)/(1+x^2) 
+#' }
+#' return integral with lower bound a and upper bound b;
+#' }
+#' @importFrom stats runif 
+#' @export
+integral <-function(a,b)
+{
+N <- 10000
+z <- numeric(N)
+u <- runif(N,0,1)
+z <- (b-a)*u + a
+f <- function(x) 
+{
+  exp(-x)/(1+x^2)
+}
+integral <- mean(f(z)/(b-a))
+integral
+}
+
+#' @title  the two-stage Gibbs sampler method for normal distribution 
+#' @description  a algorithm called Gibbs sampler using in Mento Carlo Markov chain
+#' @param n the duplicate of the chain
+#' @param r the coefficient of two normal distributions
+#' @return  bvn <- gibbs(n,r)
+#' \dontrun{
+#' gibbs<-function (n, r) 
+#'{
+#'   mat <- matrix(ncol = 2, nrow = n)
+#'  x <- 0 
+#'  y <- 0
+#'   mat[1, ] <- c(x, y)
+#'   for (i in 2:n) {
+#'      x <- rnorm(1, r * y, sqrt(1 - r^2))
+#'      y <- rnorm(1, r * x, sqrt(1 - r^2))
+#'      mat[i, ] <- c(x, y)
+#'   }
+#'   mat
+#'}
+#'bvn <- gibbs(n,r)
+#'plot(bvn,type="l")
+NULL
