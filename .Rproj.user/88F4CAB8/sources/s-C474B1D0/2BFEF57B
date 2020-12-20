@@ -1,0 +1,26 @@
+{
+    "id": "2BFEF57B",
+    "path": "C:/r_file/workspace/Statcomp20035/man/integral.Rd",
+    "project_path": "man/integral.Rd",
+    "type": "r_doc",
+    "hash": "2373160796",
+    "contents": "",
+    "dirty": false,
+    "created": 1608458307039.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1608026376,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1608026376,
+    "read_only": true,
+    "read_only_alternatives": [
+        "R/StatCompR.R"
+    ]
+}
